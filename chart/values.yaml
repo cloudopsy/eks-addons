@@ -8,6 +8,10 @@ destinationServer: ''
 argoNamespace: ''
 argoProject: ''
 
+# Cert Manager
+certManager:
+  enable: false
+
 # External DNS
 externalDNS:
   enable: false

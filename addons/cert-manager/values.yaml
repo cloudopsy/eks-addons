@@ -1,0 +1,6 @@
+ert-manager:
+  extraArgs:
+    - --enable-certificate-owner-ref=true
+  installCRDs: true
+  serviceAccount:
+    create: false
