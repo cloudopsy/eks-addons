@@ -8,6 +8,10 @@ destinationServer: ''
 argoNamespace: ''
 argoProject: ''
 
+# Battlerocket Update Operator
+brupop:
+  enable: false
+
 # Cert Manager
 certManager:
   enable: false
