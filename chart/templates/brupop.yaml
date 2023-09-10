@@ -10,7 +10,7 @@ spec:
   project: {{ .Values.argoProject | default "default" }}
   source:
     repoURL: {{ .Values.repoUrl }}
-    path: add-ons/brupop
+    path: addons/brupop
     targetRevision: {{ .Values.targetRevision }}
     helm:
       values: |
@@ -21,7 +21,7 @@ spec:
 {{/*          value: {{ .Values.certManager.serviceAccountName }}*/}}
   destination:
     server: {{ .Values.destinationServer | default "https://kubernetes.default.svc" }}
-    namespace: cert-manager
+    namespace: brupop-bottlerocket-aws
   syncPolicy:
     automated:
       prune: true
