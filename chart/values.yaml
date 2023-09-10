@@ -1,0 +1,21 @@
+# Global Values
+repoUrl: 'https://github.com/cloudopsy/eks-addons.git'
+targetRevision: HEAD
+region: ''
+account: ''
+clusterName: ''
+destinationServer: ''
+argoNamespace: ''
+argoProject: ''
+
+# External DNS
+externalDNS:
+  enable: false
+
+# Metrics Server Values
+metricsServer:
+  enable: false
+
+# Karpenter
+karpenter:
+  enable: false
