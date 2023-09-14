@@ -1,4 +1,4 @@
-{{- if and (.Values.certManager) (.Values.certManager.enable) -}}
+{{- if and (.Values.brupop) (.Values.brupop.enable) -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -16,9 +16,6 @@ spec:
       values: |
         brupop:
         {{- toYaml .Values.brupop | nindent 10 }}
-{{/*      parameters:*/}}
-{{/*        - name: cert-manager.serviceAccount.name*/}}
-{{/*          value: {{ .Values.certManager.serviceAccountName }}*/}}
   destination:
     server: {{ .Values.destinationServer | default "https://kubernetes.default.svc" }}
     namespace: brupop-bottlerocket-aws
@@ -26,7 +23,7 @@ spec:
     automated:
       prune: true
     syncOptions:
-      - CreateNamespace=true
+      - CreateNamespace={{ .Values.brupop.createNamespace | default "true" }}
     retry:
       limit: 1
       backoff:
