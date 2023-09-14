@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: cert-manager
   namespace: {{ .Values.argoNamespace | default "argocd" }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -26,7 +28,7 @@ spec:
     automated:
       prune: true
     syncOptions:
-      - CreateNamespace={{ .Values.certManager.createNamespace }}
+      - CreateNamespace={{ .Values.certManager.createNamespace | default "true" }}
     retry:
       limit: 1
       backoff:
