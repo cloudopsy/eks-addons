@@ -1,4 +1,4 @@
-ert-manager:
+cert-manager:
   extraArgs:
     - --enable-certificate-owner-ref=true
   installCRDs: true
