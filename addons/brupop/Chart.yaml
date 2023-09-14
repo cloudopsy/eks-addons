@@ -1,6 +1,6 @@
 apiVersion: v2
 name: bottlerocket-update-operator
-description: A Helm chart for installing bottlerocket-update-operato
+description: A Helm chart for installing bottlerocket-update-operator
 type: application
 
 # The chart version. This version number should be incremented each time you make changes

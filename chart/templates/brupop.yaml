@@ -23,7 +23,7 @@ spec:
     automated:
       prune: true
     syncOptions:
-      - CreateNamespace={{ .Values.brupop.createNamespace | default "true" }}
+      - CreateNamespace=true
     retry:
       limit: 1
       backoff:
