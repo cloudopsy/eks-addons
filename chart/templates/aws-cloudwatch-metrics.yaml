@@ -28,7 +28,7 @@ spec:
     automated:
       prune: true
     syncOptions:
-      - CreateNamespace={{ .Values.awsCloudWatchMetrics.createNamespace }}
+      - CreateNamespace={{ .Values.awsCloudWatchMetrics.createNamespace | "default" }}
     retry:
       limit: 1
       backoff:
