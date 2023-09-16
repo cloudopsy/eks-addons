@@ -1,3 +1,4 @@
+---
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
@@ -8,3 +9,45 @@ spec:
   package: xpkg.upbound.io/crossplane-contrib/provider-kubernetes:v0.9.0
   controllerConfigRef:
     name: kubernetes-controller-config
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kubernetes-provider-cluster-admin
+
+---
+apiVersion: kubernetes.crossplane.io/v1alpha1
+kind: ProviderConfig
+metadata:
+  name: kubernetes-provider
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  credentials:
+    source: InjectedIdentity
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: provider-kubernetes-admin-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: kubernetes-provider-cluster-admin
+    namespace: crossplane-system
+
+---
+apiVersion: pkg.crossplane.io/v1alpha1
+kind: ControllerConfig
+metadata:
+  name: kubernetes-controller-config
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  serviceAccountName: kubernetes-provider-cluster-admin
