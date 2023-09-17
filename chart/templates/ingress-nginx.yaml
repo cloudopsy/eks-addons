@@ -16,9 +16,6 @@ spec:
       values: |
         ingress-nginx:
         {{- toYaml .Values.ingressNginx | nindent 10 }}
-      parameters:
-        - name: controller.extraArgs.enable-ssl-passthrough
-          value: {{ "" }}
   destination:
     server: {{ .Values.destinationServer | default "https://kubernetes.default.svc" }}
     namespace: ingress-nginx
