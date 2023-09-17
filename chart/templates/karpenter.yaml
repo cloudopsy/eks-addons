@@ -33,7 +33,6 @@ spec:
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
     syncOptions:
       - CreateNamespace={{ .Values.karpenter.createNamespace }}
     retry:
