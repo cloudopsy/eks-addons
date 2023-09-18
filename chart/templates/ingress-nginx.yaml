@@ -4,8 +4,8 @@ kind: Application
 metadata:
   name: ingress-nginx
   namespace: {{ .Values.argoNamespace | default "argocd" }}
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+{{/*  finalizers:*/}}
+{{/*    - resources-finalizer.argocd.argoproj.io*/}}
 spec:
   project: {{ .Values.argoProject | default "default" }}
   source:
