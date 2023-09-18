@@ -1,6 +1,6 @@
 apiVersion: v2
-name: crossplane
-description: A Helm chart for installing Crossplane
+name: crossplane-resources
+description: A Helm chart for installing Crossplane resources
 type: application
 
 # The chart version. This version number should be incremented each time you make changes
