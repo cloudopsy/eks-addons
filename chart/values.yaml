@@ -27,3 +27,15 @@ metricsServer:
 # Karpenter
 karpenter:
   enable: false
+
+# Crossplane
+crossplane:
+  enable: false
+
+# NGINX Ingress
+ingressNginx:
+  enable: false
+
+# AWS Load balancer controller
+awsLoadBalancerController:
+  enable: false
