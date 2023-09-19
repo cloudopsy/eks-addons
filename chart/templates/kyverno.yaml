@@ -9,13 +9,17 @@ metadata:
 spec:
   project: {{ .Values.argoProject | default "default" }}
   source:
-    repoURL: {{ .Values.repoUrl }}
-    path: addons/kyverno
-    targetRevision: {{ .Values.targetRevision }}
-    helm:
-      values: |
-        kyverno:
-        {{- toYaml .Values.kyverno | nindent 10 }}
+    chart: kyverno
+    repoURL: https://kyverno.github.io/kyverno
+    targetRevision: 3.0.5
+{{/*    repoURL: {{ .Values.repoUrl }}*/}}
+{{/*    path: addons/kyverno*/}}
+{{/*    targetRevision: {{ .Values.targetRevision }}*/}}
+{{/*    */}}
+{{/*    helm:*/}}
+{{/*      values: |*/}}
+{{/*        kyverno:*/}}
+{{/*        {{- toYaml .Values.kyverno | nindent 10 }}*/}}
   destination:
     server: {{ .Values.destinationServer | default "https://kubernetes.default.svc" }}
     namespace: kyverno
@@ -25,6 +29,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace={{ .Values.kyverno.createNamespace | default "true" }}
+      - Replace=true
     retry:
       limit: 5
       backoff:
