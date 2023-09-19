@@ -36,6 +36,3 @@ crossplane:
 ingressNginx:
   enable: false
 
-# AWS Load balancer controller
-awsLoadBalancerController:
-  enable: false
