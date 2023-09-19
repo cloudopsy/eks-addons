@@ -36,3 +36,6 @@ crossplane:
 ingressNginx:
   enable: false
 
+# Kube Prometheus Stack
+kubePrometheusStack:
+  enable: false
