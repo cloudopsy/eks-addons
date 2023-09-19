@@ -15,6 +15,9 @@ version: 0.1.0
 appVersion: "1.0"
 
 dependencies:
+  - name: kyverno-policies
+    version: 3.0.4
+    repository: https://kyverno.github.io/kyverno/
   - name: kyverno
     version: 3.0.5
     repository: https://kyverno.github.io/kyverno/
