@@ -1,3 +1,5 @@
+crds:
+  enabled: true
 kube-prometheus-stack:
   ## Create default rules for monitoring the cluster
   ## Disable rules for unreachable components
