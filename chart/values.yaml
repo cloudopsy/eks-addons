@@ -39,3 +39,7 @@ ingressNginx:
 # Kube Prometheus Stack
 kubePrometheusStack:
   enable: false
+
+# Kyverno
+kyverno:
+  enable: false
