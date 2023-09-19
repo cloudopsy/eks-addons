@@ -21,6 +21,7 @@ spec:
   syncPolicy:
     automated:
       prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace={{ .Values.crossplane.createNamespace | default "true" }}
     retry:
