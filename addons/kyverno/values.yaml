@@ -1,43 +1,44 @@
-policyExclude:
-  disallow-selinux:
-    any:
-      - resources:
-          kinds:
-            - Pod
-          namespaces:
-            - brupop-bottlerocket-aws
-  disallow-host-port:
-    any:
-      - resources:
-          kinds:
-            - Pod
-          namespaces:
-            - kube-system
-  disallow-host-path:
-    any:
-      - resources:
-          kinds:
-            - Pod
-          namespaces:
-            - kube-system
-  disallow-capabilities:
-    any:
-      - resources:
-          kinds:
-            - Pod
-          namespaces:
-            - kube-system
-  disallow-host-namespaces:
-    any:
-      - resources:
-          kinds:
-            - Pod
-          namespaces:
-            - kube-system
-  disallow-privileged-containers:
-    any:
-      - resources:
-          kinds:
-            - Pod
-          namespaces:
-            - kube-system
+kyverno-policies:
+  policyExclude:
+    disallow-selinux:
+      any:
+        - resources:
+            kinds:
+              - Pod
+            namespaces:
+              - brupop-bottlerocket-aws
+    disallow-host-port:
+      any:
+        - resources:
+            kinds:
+              - Pod
+            namespaces:
+              - kube-system
+    disallow-host-path:
+      any:
+        - resources:
+            kinds:
+              - Pod
+            namespaces:
+              - kube-system
+    disallow-capabilities:
+      any:
+        - resources:
+            kinds:
+              - Pod
+            namespaces:
+              - kube-system
+    disallow-host-namespaces:
+      any:
+        - resources:
+            kinds:
+              - Pod
+            namespaces:
+              - kube-system
+    disallow-privileged-containers:
+      any:
+        - resources:
+            kinds:
+              - Pod
+            namespaces:
+              - kube-system
